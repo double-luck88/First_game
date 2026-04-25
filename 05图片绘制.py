@@ -13,6 +13,13 @@ pg.display.set_caption("hello pygame!")
 #创建Clock对象,clock时钟意思
 clock=pg.time.Clock()
 
+#加载图片
+#1.绝对路径，带盘符的路径。一般不用这个
+# img=pg.image.load('D:\pythonProject2\游戏素材\img\player_left_0.png')
+#相对路径，相对于py文件来说。
+img=pg.image.load('游戏素材/img/player_left_0.png')
+
+
 x,y=0,0
 
 #游戏主循环（不断处理用户输入）
@@ -33,8 +40,13 @@ while isRunning:
 
     #////////////////在这里放置绘图代码//////////////////
 
-    # pg.draw.rect(window,(255,255,0),(20,20,50,50))#前面时颜色，后面括号前面两个是坐标x,y，后面是大小
-    pg.draw.rect(window,(255,255,0),(x,y,50,50))#前面时颜色，后面是大小
+    #绘制图片
+    # window.blit(img,(x,y),None) #None也可以不写
+    window.blit(img,(0,0))
+    window.blit(img,(img.get_width(),0),(0,0,84,91))#对图片进行裁剪
+
+
+
     x+=1
     y+=1
 

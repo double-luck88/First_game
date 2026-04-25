@@ -13,6 +13,30 @@ pg.display.set_caption("hello pygame!")
 #创建Clock对象,clock时钟意思
 clock=pg.time.Clock()
 
+
+img=pg.image.load('游戏素材/img/player_left_0.png')
+
+#缩放图片
+##缩放成指定大小
+# new_img=pg.transform.scale(img,(100,100))
+##缩放成原来的两倍
+# new_img=pg.transform.scale2x(img)
+##缩放成指定倍数
+# new_img=pg.transform.scale_by(img,2)
+# new_img=pg.transform.smoothscale_by(img,2)#平滑版本
+
+
+
+#旋转图片
+# new_img=pg.transform.rotate(img,45)
+
+#旋转加缩放
+# new_img=pg.transform.rotozoom(img,45,0.6)
+
+#翻转
+# new_img=pg.transform.flip(img,True,False)#左右翻转
+# new_img=pg.transform.flip(img,True,True)#上下翻转
+
 x,y=0,0
 
 #游戏主循环（不断处理用户输入）
@@ -33,8 +57,13 @@ while isRunning:
 
     #////////////////在这里放置绘图代码//////////////////
 
-    # pg.draw.rect(window,(255,255,0),(20,20,50,50))#前面时颜色，后面括号前面两个是坐标x,y，后面是大小
-    pg.draw.rect(window,(255,255,0),(x,y,50,50))#前面时颜色，后面是大小
+    #绘制图片
+    # window.blit(img,(x,y),None) #None也可以不写
+    window.blit(img,img.get_rect(center=(400-200,300)))
+    window.blit(new_img,new_img.get_rect(center=(400,300)))
+
+
+
     x+=1
     y+=1
 
